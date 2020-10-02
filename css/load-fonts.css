@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "azonix";
+    src: url(../font/Azonix.otf);
+}
+
+@font-face {
+    font-family: "Arcon";
+    src: url("../font/arcon.regular.otf");
+  }
+  
+  @font-face {
+    font-family: "Quicksand_Light";
+    src: url("../font/Quicksand_Light.otf");
+  }
+  
+  @font-face {
+    font-family: "Quicksand_Book";
+    src: url("../font/Quicksand_Book.otf");
+  }
+
+  @font-face {
+      font-family: "modern";
+      src: url("../font/MODERN SPACE.otf");
+  }

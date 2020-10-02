@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Ryan Donnelly | Ecosystem</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flex.css">
+    <link rel="stylesheet" href="css/load-fonts.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="js/fade.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+  </head>
+
+  <body>
+      <div id="data" class="data">
+        <nav>
+            <div class="left-divide">
+                <a href="index.html"><img src="img/logo-gray.png" alt="Ryan's Logo." /></a>
+                <a class="name" href="index.html">ryanfd</a>
+            </div>
+          
+            <div class="right-divide">
+                <div class="nav-item">
+                    <a id="me" href="index.html#data">about me</a>
+                    <hr id="me">
+                </div>
+                <div class="nav-item">
+                    <a id="work" href="index.html#mywork" class="nav-item">my work</a>
+                    <hr id="work">
+                </div>
+                <div class="nav-item">
+                    <a id="resume" href="pdf/Resume.pdf" target="_blank" class="nav-item">my resume</a>
+                    <hr id="resume">
+                </div>
+                <div class="nav-item">
+                    <a id="contact" href="contact.html" class="nav-item">contact me</a>
+                    <hr id="contact">
+                </div>
+            </div>
+        </nav>
+        <div class="info">
+            <div class="wrapper">
+                <div class="sidebar">
+                    <h2>Ecosystem</h2>
+                    <hr>
+                </div>
+
+                <div class="main">
+                    <div class="rundown-divide">
+                        <div class="divide-third three">
+                            <div class="run-top three">
+                                <h4 class="rundown top">Role</h4>
+                                <h5>Programmer</h5>
+                            </div>
+                            <div class="run-mid three">
+                                <h4 class="rundown">Language</h4>
+                                <h5>Java</h5>
+                            </div>
+                            <div class="run-bottom three">
+                                <h4 class="rundown">IDE</h4>
+                                <h5>Eclipse</h5>
+                            </div>
+                        </div>
+
+                        <div class="divide-2-of-3">
+                            <video class="three" autoplay loop muted>
+                                <source src="vid/simFull.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Summary</h3>
+                        <hr class="sub">
+                        <p>Wildlife Simulation was a term-long project for my introduction to Java class. The point of this assignment was to use elements of randomness and natural phenomenon to create a program that simulates a small ecosystem in the ocean with fish, sharks, and bits of food. Each animal object was dependent on an energy model that affected the movement of the animal. With a ‘healthy’ state and a ‘sick’ state, the speed at which an animal chases its food (a shark chases a fish, and a fish chases a cookie) would be normal or at half speed. The application also allowed a user to interact with the simulation and affect the virtual environment. A user can change the speed of the entire simulation and slow it down, increase the size of the cookies (a bigger cookie will give a fish more energy and help them grow), select a shark and have that specific predator move with extra speed for five seconds, and finally cancel the flocking behaviour of the fish. Lastly, I had to break down movement aspects like acceleration into its mathematical elements in order to create fluid movement for the animals, and flocking behaviour into its mathematical elements to mimic natural behaviour for fish.</p>
+                    </div>
+
+                    <div class="section">
+                        <h3>Process + Challenges</h3>
+                        <hr class="sub">
+                        <div class="sum-divide">
+                            <p>The biggest challenge I faced was implementing the flocking behaviour for the fish.</p>
+                            <p>I started with the <em>why</em> of my problem: why do fish flock? After taking some time to do some research, I found a National Geographic clip on YouTube that gave me my answer. When a predator was nearby, fish would flock together because it was a protection mechanism. While fish flocked, a shark is not able to differentiate between individual fish. They see this huge population of fish in a small space as a larger entity and can’t target a single fish to hunt. Once I understood this, I knew that the flocking would not only change the behaviour of my fish, but how my sharks hunted as well.</p>
+                        </div>
+                        <div class="sum-remainder">
+                            <video autoplay muted loop>
+                                <source src="vid/sim_early.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div class="sum-divide no-space">
+                            <p class="space">Next, I broke my flocking behaviour into different mathematical components. Before I added this behaviour, my fish would move to the closest biggest cookie that is nearby and they would move around each other if they collided with one-another. So I had to consider how I would get a group of fish to move to the biggest piece of food nearby without constantly avoiding each other. After some consideration, I broke my flocking behaviour down into three functions: a revised collision function, an attraction to a group of fish that is stronger than the attraction to a single fish, and movement towards a cookie as a group, rather than individual movement.</p>
+                        </div>
+                        <div class="sum-remainder">
+                            <video autoplay muted loop>
+                                <source src="vid/sim_mid.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div class="sum-divide no-space">
+                            <p class="space">Finally, I created my functions. Instead of fish entirely avoiding each other, my fish would now separate by 10 to 20 pixels, which created some overlap between fish, but you could still differentiate between different fish. I then added an attraction force between fish. This force pulled fish together but I made sure to make it a weaker force than the food-attraction force as I felt that food would always take precedence over flocking. Lastly, I created a calculation model that would check which piece of food each part of the flock is most drawn to. From there, based on the size and proximity of the cookie that the majority of the flock is most attracted to, the flock would move there.</p>
+                        </div>
+                        <div class="sum-remainder">
+                            <video autoplay muted loop>
+                                <source src="vid/sim_three.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div class="sum-divide no-space">
+                            <p class="space">My flocking mechanism resulted in behaviour that realistically mimics real-world flocking. The movement of my program looks natural (for a two-dimensional plane) and it seems like the fish can make decisions about how they respond to the presence of predators and food.</p>
+                        </div>
+                        <div class="sum-remainder">
+                            <video autoplay muted loop>
+                                <source src="vid/simFull.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="section last">
+                        <h3>Final Product</h3>
+                        <hr class="sub">
+                        <p>I learned how to take natural behaviour and phenomena and translate it into mathematical building blocks that can be interpreted by a computer. Had this project continued, I would have liked to add some more functionality to my predators to more actively target sick fish and fish who have gotten separated from a flock. Furthermore, I would add more objects like rocks, that animals would have to navigate around, and kelp, that would slow down any animal that passes through it.</p>
+                    </div>
+                </div>       
+            </div>
+        </div> 
+      </div>
+
+      <footer>
+            <div class="foot-edge"><hr></div>
+            <div class="foot-mid">
+                <div class='foot-link'>
+                    <a href="https://www.linkedin.com/in/ryandonnelly98" target="_blank">
+                        <img src="img/linkedin.png" alt="Check out my LinkedIn">
+                    </a>
+                </div>
+
+                <div class='foot-link'>
+                    <a href="https://www.github.com/ryanfd" target="_blank">
+                        <img src="img/github.png" alt="Check out my GitHub">
+                    </a>
+                </div>
+
+                <div class="foot-link">
+                    <a href="mailto:rdonnell@sfu.ca" target="_top">
+                        <img src="img/email.png" alt="Send me an email">
+                    </a>
+                </div>
+            </div>
+            <div class="foot-edge"><hr></div>
+      </footer>
+  </body>
+</html>
+
+<script src="js/nav-hover.js"></script>
