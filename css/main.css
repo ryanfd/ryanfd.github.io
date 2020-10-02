@@ -965,3 +965,11 @@ a.style-link.middle {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+#contact-size {
+    height: 100%;
+}
+
+#no-height {
+    height: auto;
+}
