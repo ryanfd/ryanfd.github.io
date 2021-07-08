@@ -252,6 +252,10 @@ h2 {
     width: 400px;
 }
 
+h2.long-header {
+    width: 500px;
+}
+
 h3 {
     font-family: "Quicksand_Light";
     font-size: 2rem;
