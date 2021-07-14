@@ -319,6 +319,7 @@
 
     nav {
         padding-bottom: 1.5rem;
+        max-height: none;
     }
 
     a.name {
@@ -520,6 +521,14 @@
 @media (max-width: 22em) {
     nav .right-divide .nav-item a {
         font-size: 0.5rem;
+    }
+
+    .wrapper {
+        padding-left: 1rem;
+    }
+
+    .contact-1-of-2 h4, .contact-1-of-2 h5 {
+        font-size: 1.1rem;
     }
 }
 
