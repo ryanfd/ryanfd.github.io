@@ -358,6 +358,13 @@ a.define {
     transform: translateX(-50%);
 }
 
+.sum-remainder img.sum-img.search-tree {
+    max-height: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .sum-remainder img.strict-img {
     max-height: 100%;
     position: absolute;
