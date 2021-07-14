@@ -3,14 +3,18 @@ function leave() {
     $(".sum-remainder img.strict-img").animate({opacity: 0}, {duration: 200, queue: false});
     $(".definition").animate({left: 0}, {duration: 200, queue: false});
     $(".definition").css("display", "block");
+    $(".definition-body").animate({left: 0}, {duration: 200, queue: false});
+    $(".definition-body").css("display", "block");
 }
 
 function hide() {
     $(".definition").css("display", "none");
+    $(".definition-body").css("display", "none");
 }
 
 function reset() {
     $(".definition").animate({left: "150%"}, {duration: 200, queue: false});
+    $(".definition-body").animate({left: "150%"}, {duration: 200, queue: false});
     $(".sum-remainder img.sum-img").animate({opacity: 1}, {duration: 200, queue: false});
     $(".sum-remainder img.strict-img").animate({opacity: 1}, {duration: 200, queue: false});
     setTimeout(hide, 200);
@@ -18,6 +22,9 @@ function reset() {
 
 // reset to starting display
 $(".exit").click(function() {
+    setTimeout(reset, 0);
+});
+$(".exit-body").click(function() {
     setTimeout(reset, 0);
 });
 
