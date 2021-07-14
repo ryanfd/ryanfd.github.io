@@ -1,5 +1,6 @@
 function leave() {
     $(".sum-remainder img.sum-img").animate({opacity: 0}, {duration: 200, queue: false});
+    $(".sum-remainder img.strict-img").animate({opacity: 0}, {duration: 200, queue: false});
     $(".definition").animate({left: 0}, {duration: 200, queue: false});
     $(".definition").css("display", "block");
 }
@@ -11,6 +12,7 @@ function hide() {
 function reset() {
     $(".definition").animate({left: "150%"}, {duration: 200, queue: false});
     $(".sum-remainder img.sum-img").animate({opacity: 1}, {duration: 200, queue: false});
+    $(".sum-remainder img.strict-img").animate({opacity: 1}, {duration: 200, queue: false});
     setTimeout(hide, 200);
 }
 
@@ -66,5 +68,25 @@ $("#informed-search").click(function() {
     $("p.schooled-sum-definition").text("Using a heuristic function (a function that estimates distance to the goal for each node), informed search methods explore the problem space far more efficiently than uninformed search methods. Informed searches allow search algorithms to make smarter decisions about how to explore and expand the search tree, resulting in far more efficient search. This is done by combining real cost and estimated cost.");
     $("h4.schooled-sum-definition").animate({opacity: 1}, 200);
     $("p.schooled-sum-definition").animate({opacity: 1}, 200);
+    setTimeout(leave, 0);
+});
+
+$("#expanded").click(function() {
+    $("h4.ai-sum-definition").css("opacity", "0");
+    $("p.ai-sum-definition").css("opacity", "0");
+    $("h4.ai-sum-definition").text("Expansion");
+    $("p.ai-sum-definition").text("Expanding a node in a search tree means generating its children. In other words, identifying all the tiles adjacent to the agent’s current position.");
+    $("h4.ai-sum-definition").animate({opacity: 1}, 200);
+    $("p.ai-sum-definition").animate({opacity: 1}, 200);
+    setTimeout(leave, 0);
+});
+
+$("#prune").click(function() {
+    $("h4.ai-sum-definition").css("opacity", "0");
+    $("p.ai-sum-definition").css("opacity", "0");
+    $("h4.ai-sum-definition").text("Pruning");
+    $("p.ai-sum-definition").text("Pruning is the process of keeping track of all tiles visited in the maze and not exploring tiles of the maze that have already been visited. While it does require more memory for the algorithm to run, it can drastically decrease runtime as nodes of a search tree will not be reopened.");
+    $("h4.ai-sum-definition").animate({opacity: 1}, 200);
+    $("p.ai-sum-definition").animate({opacity: 1}, 200);
     setTimeout(leave, 0);
 });

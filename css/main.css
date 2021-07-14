@@ -333,6 +333,13 @@ a.define {
     padding-left: 2rem;
 }
 
+.definition .def-header h4.ai-sum-definition {
+    color: rgba(255,255,255,1);
+    padding: 1rem;
+    margin-top: 0;
+    padding-left: 2rem;
+}
+
 .definition .def-header img {
     max-width: 20px;
     position: absolute;
