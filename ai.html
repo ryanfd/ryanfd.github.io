@@ -127,7 +127,10 @@
                             <p>A-Star (A*) was the first of the informed search methods I implemented. Rather than blindly exploring all nodes of a problem space, A* makes informed decisions about how to progress through a search tree. For each node, A* tracks the actual cost/distance (g(n)) to reach that point from the root/starting position. It also computes a heuristic (estimation) function (h(n)) at each node to estimate the remaining distance/cost to reach the goal. Each node to be <a id="expanded" class="define">expanded</a> is ordered by its evaluation function, f(n) = g(n) + h(n), in ascending order and A* expands the node with the smallest f(n) value. This algorithm allows an agent to explore all possible optimal paths, without wasting time traversing through obviously suboptimal solutions. A significant problem I ran into while implementing A* was that while it was more efficient than either Depth-First Search or Breadth-First Search, it still took significant time to find an optimal solution. So, after some further research into search algorithm optimization, I realized I could <a id="prune" class="define">prune</a> my search tree. Resulting in a noticeable decrease in runtime. Upon seeing this improvement, I went back and implemented pruning into my DFS and BFS algorithms further increasing their runtime quality.</p>
                         </div>
                         <div class="sum-remainder">
-                            <img class="strict-img length" src="img/leveldesign.jpg" alt="The level I designed." />
+                            <video id="def" autoplay muted loop>
+                                <source src="vid/astar-vid.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                             <div class="definition-body">
                                 <div class="def-header">
                                     <h4 class="ai-sum-definition"></h4>

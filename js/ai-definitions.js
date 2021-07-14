@@ -1,6 +1,6 @@
 function leave() {
     $(".sum-remainder img.sum-img").animate({opacity: 0}, {duration: 200, queue: false});
-    $(".sum-remainder img.strict-img").animate({opacity: 0}, {duration: 200, queue: false});
+    $(".sum-remainder video#def").animate({opacity: 0}, {duration: 200, queue: false});
     $(".definition").animate({left: 0}, {duration: 200, queue: false});
     $(".definition").css("display", "block");
     $(".definition-body").animate({left: 0}, {duration: 200, queue: false});
@@ -16,7 +16,7 @@ function reset() {
     $(".definition").animate({left: "150%"}, {duration: 200, queue: false});
     $(".definition-body").animate({left: "150%"}, {duration: 200, queue: false});
     $(".sum-remainder img.sum-img").animate({opacity: 1}, {duration: 200, queue: false});
-    $(".sum-remainder img.strict-img").animate({opacity: 1}, {duration: 200, queue: false});
+    $(".sum-remainder video#def").animate({opacity: 1}, {duration: 200, queue: false});
     setTimeout(hide, 200);
 }
 
