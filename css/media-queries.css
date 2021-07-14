@@ -4,6 +4,24 @@
     }
 }
 
+@media (max-width: 86.75em) {
+    .sum-remainder img.sum-img.search-tree {
+        max-height: 60%;
+    }
+}
+
+@media (max-width: 79.5em) {
+    .sum-remainder img.sum-img.search-tree {
+        max-height: 50%;
+    }
+}
+
+@media (max-width: 72.25em) {
+    .sum-remainder img.sum-img.search-tree {
+        max-height: 40%;
+    }
+}
+
 @media (max-width: 66.75em) {
     .divide-third, .divide-third.three {
         flex-basis: 100%;
@@ -85,6 +103,11 @@
         max-height: none;
         position: relative;
         width: 50%;
+    }
+
+    .sum-remainder img.sum-img.search-tree {
+        position: relative;
+        max-height: 100%;
     }
 
     .sum-remainder img.sum-img.water {
