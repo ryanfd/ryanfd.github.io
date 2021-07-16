@@ -203,7 +203,7 @@
 
     .sidebar {
         z-index: 9;
-        top: 10%;
+        top: 7.85%;
         left: 10%;
         width: 100%;
         flex-basis: 100%;
@@ -240,7 +240,7 @@
 
     .sidebar hr {
         left: 0;
-        top: 220%;
+        top: 140%;
         z-index: 11;
     }
 
@@ -335,7 +335,7 @@
     }
 
     .sidebar  {
-        top: 13.25%;
+        top: 11.25%;
     }
 }
 
@@ -416,7 +416,7 @@
     }
 
     .sidebar hr {
-        top: 190%;
+        top: 130%;
     }
 
     .effect figure {
