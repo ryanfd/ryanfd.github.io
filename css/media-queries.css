@@ -4,6 +4,24 @@
     }
 }
 
+@media (max-width: 86.75em) {
+    .sum-remainder img.sum-img.search-tree {
+        max-height: 60%;
+    }
+}
+
+@media (max-width: 79.5em) {
+    .sum-remainder img.sum-img.search-tree {
+        max-height: 50%;
+    }
+}
+
+@media (max-width: 72.25em) {
+    .sum-remainder img.sum-img.search-tree {
+        max-height: 40%;
+    }
+}
+
 @media (max-width: 66.75em) {
     .divide-third, .divide-third.three {
         flex-basis: 100%;
@@ -76,6 +94,10 @@
         position: relative;
     }
 
+    #vid-small {
+        max-width: 100%;
+    }
+
     .sum-remainder {
         flex-basis: 100%;
         position: relative;
@@ -85,6 +107,11 @@
         max-height: none;
         position: relative;
         width: 50%;
+    }
+
+    .sum-remainder img.sum-img.search-tree {
+        position: relative;
+        max-height: 100%;
     }
 
     .sum-remainder img.sum-img.water {
@@ -176,7 +203,7 @@
 
     .sidebar {
         z-index: 9;
-        top: 10%;
+        top: 7.85%;
         left: 10%;
         width: 100%;
         flex-basis: 100%;
@@ -213,7 +240,7 @@
 
     .sidebar hr {
         left: 0;
-        top: 220%;
+        top: 140%;
         z-index: 11;
     }
 
@@ -296,6 +323,7 @@
 
     nav {
         padding-bottom: 1.5rem;
+        max-height: none;
     }
 
     a.name {
@@ -307,7 +335,7 @@
     }
 
     .sidebar  {
-        top: 13.25%;
+        top: 11.25%;
     }
 }
 
@@ -388,7 +416,7 @@
     }
 
     .sidebar hr {
-        top: 190%;
+        top: 130%;
     }
 
     .effect figure {
@@ -497,6 +525,14 @@
 @media (max-width: 22em) {
     nav .right-divide .nav-item a {
         font-size: 0.5rem;
+    }
+
+    .wrapper {
+        padding-left: 1rem;
+    }
+
+    .contact-1-of-2 h4, .contact-1-of-2 h5 {
+        font-size: 1.1rem;
     }
 }
 

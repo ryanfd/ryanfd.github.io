@@ -113,6 +113,7 @@ nav {
     position: -webkit-sticky;
     top: 0;
     z-index: 10;
+    max-height: 70px;
 }
 
 nav .left-divide a img {
@@ -252,6 +253,10 @@ h2 {
     width: 400px;
 }
 
+h2.long-header {
+    width: 500px;
+}
+
 h3 {
     font-family: "Quicksand_Light";
     font-size: 2rem;
@@ -317,12 +322,34 @@ a.define {
     display: none;
 }
 
+.definition-body {
+    position: absolute;
+    top: 50%;
+    left: 150%;
+    transform: translateY(-50%);
+    /* background-color: red; */
+    width: 100%;
+    /* height: 100%; */
+    /* margin-top: 2rem; */
+    border: solid;
+    border-color: rgba(237,67,55,1);
+    border-width: thin;
+    display: none;
+}
+
 .def-header {
     background-color: rgba(237,67,55,1);
     position: relative;
 }
 
 .definition .def-header h4.schooled-sum-definition {
+    color: rgba(255,255,255,1);
+    padding: 1rem;
+    margin-top: 0;
+    padding-left: 2rem;
+}
+
+.definition-body .def-header h4.ai-sum-definition {
     color: rgba(255,255,255,1);
     padding: 1rem;
     margin-top: 0;
@@ -338,7 +365,21 @@ a.define {
     opacity: 1;
 }
 
+.definition-body .def-header img {
+    max-width: 20px;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
 .definition p.schooled-sum-definition {
+    padding: 2rem;
+    padding-top: 1rem;
+}
+
+.definition-body p.ai-sum-definition {
     padding: 2rem;
     padding-top: 1rem;
 }
@@ -349,6 +390,13 @@ a.define {
 
 .sum-remainder img.sum-img {
     max-height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sum-remainder img.sum-img.search-tree {
+    max-height: 70%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -625,7 +673,7 @@ video {
 
 .sidebar h2 {
     position: absolute;
-    top: 25%;
+    top: 30%;
 }
 
 .sidebar hr {
@@ -643,7 +691,7 @@ video {
 }
 
 footer {
-    /* background-color: rgba(50, 50, 50, 1); */
+    background-color: rgba(50, 50, 50, 1);
     width: 100%;
     height: 100px;
 }
@@ -967,9 +1015,14 @@ a.style-link.middle {
 }
 
 #contact-size {
-    height: 100%;
+    /* height: 100%; */
+    /* margin-bottom: 5rem; */
 }
 
 #no-height {
     height: auto;
+}
+
+#vid-small {
+    max-width: 40%;
 }
