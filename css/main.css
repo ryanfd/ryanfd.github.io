@@ -1022,3 +1022,7 @@ a.style-link.middle {
 #no-height {
     height: auto;
 }
+
+#vid-small {
+    max-width: 40%;
+}

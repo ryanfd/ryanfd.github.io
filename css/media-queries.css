@@ -94,6 +94,10 @@
         position: relative;
     }
 
+    #vid-small {
+        max-width: 100%;
+    }
+
     .sum-remainder {
         flex-basis: 100%;
         position: relative;
