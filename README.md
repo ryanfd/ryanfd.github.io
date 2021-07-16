@@ -1,1 +1,2 @@
-# theportfolio# ryanfd.github.io
+ryanfd.github.io
+ryanfd.com
