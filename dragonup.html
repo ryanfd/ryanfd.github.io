@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Ryan Donnelly | Resurgence</title>
+    <link rel="shortcut icon" type="image/png" href="img/logo-black.png" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flex.css">
+    <link rel="stylesheet" href="css/load-fonts.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="js/fade.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+  </head>
+
+  <body>
+      <div id="data" class="data">
+        <nav>
+            <div class="left-divide">
+                <a href="index.html"><img src="img/logo-gray.png" alt="Ryan's Logo." /></a>
+                <a class="name" href="index.html">ryanfd</a>
+            </div>
+          
+            <div class="right-divide">
+                <div class="nav-item">
+                    <a id="me" href="index.html#data">about me</a>
+                    <hr id="me">
+                </div>
+                <div class="nav-item">
+                    <a id="work" href="index.html#mywork" class="nav-item">my work</a>
+                    <hr id="work">
+                </div>
+                <div class="nav-item">
+                    <a id="resume" href="pdf/Resume.pdf" target="_blank" class="nav-item">my resume</a>
+                    <hr id="resume">
+                </div>
+                <div class="nav-item">
+                    <a id="contact" href="contact.html" class="nav-item">contact me</a>
+                    <hr id="contact">
+                </div>
+            </div>
+        </nav>
+        <div class="info">
+            <div class="wrapper">
+                <div class="sidebar">
+                    <h2>Dragon Up</h2>
+                    <hr>
+                </div>
+
+                <div class="main">
+                        <!-- <h1>Schooled!</h1> -->
+                        <!-- <hr class="header"> -->
+                    <div class="rundown-divide">
+                        <div class="divide-third three">
+                            <div class="run-top three">
+                                <h4 class="rundown top">Role</h4>
+                                <h5>Solo Game Designer</h5>
+                            </div>
+                            <div class="run-mid three">
+                                <h4 class="rundown">Skills</h4>
+                                <h5>Gameplay Design</h5>
+                                <h5>Narrative Design</h5>
+                                <h5>Event Design</h5>
+                            </div>
+                            <div class="run-bottom three">
+                                <h4 class="rundown">Gameplay</h4>
+                                <h5>Idle</h5>
+                                <h5>Mobile</h5>
+                                <h5>Resource Management</h5>
+                            </div>
+                        </div>
+
+                        <div class="divide-2-of-3">
+                            <video controls>
+                                <source type="video/mp4" src="vid/Resurgence Gameplay Trailer.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="gdd"><a href="pdf/DragonUpDesignTest_RyanDonnelly.pdf" target="_blank">Check Out my Dragon Up Event Design Document</a></p>
+                    </div>
+
+                    <div class="section">
+                            <h3>Summary</h3>
+                            <hr class="sub">
+                            <div class="sum-divide">
+                                <p><em>Resurgence</em> was a semester-long project I completed in my Advanced Game Design class. The objective of the assignment was to utilize novelty mechanics to create a fun and unique gameplay experience. Designed around the <a id="challenge" class="define">challenge</a> and <a id="fellowship" class="define">fellowship</a> game design aesthetics, <em>Resurgence</em> was the only cooperative game in the class, thereby creating a unique social experience.</p>
+                            </div>
+                            <div class="sum-remainder">
+                                <img class="sum-img water" src="img/water.png" alt="The title image for Resurgence." />
+                                <div class="definition">
+                                    <div class="def-header">
+                                        <h4 class="schooled-sum-definition"></h4>
+                                        <img class="exit" src="img/exit.png" alt="Leave" />
+                                    </div>
+                                    <p class="schooled-sum-definition"></p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    <div class="section expand">
+                        <h3>Process + Challenges</h3>
+                        <hr class="sub">
+                        <p>During early brainstorming stages, I was inspried by the design process of Nintendo's <em>Super Mario Odyssey</em>. Everything about that game, concept, artistic theme, even the story, derives from the core gameplay mechanic of the player throwing their hat.</p>
+                        <div class="sum-divide no-space">
+                            <p>So, my teammates and I brainstormed interesting gameplay mechanics and let the concept materialize naturally as we refined our mechanics.</p>
+                            <p>Our first step forward was the idea of allowing players to control the elements of their environment. Originally, we played with the concept of electricity: moving through circuits and activating mechanisms to overcome obstacles and solve puzzles.</p>
+                            <p>This elemental concept got me thinking about how different elements interact with one another and how that combination could lead to a fun and social gaming environment. After further iteration and refinement, we landed on the idea of cooperative play between Water and Earth based characters.</p>
+                        </div>
+                        <div class="sum-remainder">
+                            <img class="strict-img" src="img/core-loop.jpg" alt="Core Gameplay loop." />
+                        </div>
+
+                        <div class="sum-divide no-space">
+                            <p>We started talking about what kinds of abilities our two characters should have. Eventually, I came up with our final 4 abilities for our two players. The Earth character has the transpose ability (throw rock platforms around a level) and the fissure ability (open and close gaps in the ground). Our water character had the dive ability (able to navigate through pipes to reach otherwise unattainable locations in a level) and the geyser ability (creating powerful spouts of water that push platforms, players and enemies).</p>
+                            <p>My next task was to implement the water abilities using the Unity editor and my own C# scripts. Geyser proved to be a bit of a challenge as I utilized Unity components I was not familiar with like Buoyancy Effector2D but eventually I had my desired functionality.</p>
+                        </div>
+                        <div class="sum-remainder">
+                            <video autoplay muted loop>
+                                <source type="video/mp4" src="vid/waterabilities.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div class="sum-divide no-space">
+                            <p>Lastly was level design. My task was to create our most challenging level. I wanted to use all mechanics available to me while creating a bit of a difficulty spike for our players. This level was to act as a final challenge before our final boss. I looked at creating a faster paced level that would create some timing challenges for our players as well as forcing players to use their abilities in an offensive manner.</p>
+                        </div>
+                        <div class="sum-remainder">
+                            <img class="strict-img length" src="img/leveldesign.jpg" alt="The level I designed." />
+                        </div>
+                    </div>
+
+                    <div class="section last">
+                        <h3>Final Product</h3>
+                        <hr class="sub">
+                        <p>After hours of designing, iterating, playtesting and refining, we had quite a positive final result. Industry judges felt that we nailed the collaborative aspect of our game and that it was a joy to play with peers.</p>
+                        <p>Furthermore, for our final showcase, we had invited a group of high school students to play all of the games in the class. <em>Resurgence</em> earned the People's Favourite Award as voted by our guests.</p>
+                        <p>Had this project continued, I would have liked to implement a few more dynamic camera effects, like a paralax scroll, to create a more cohesive game environment and I would have liked to further merge the narrative aspect of our game with the gameplay by adding lore collectibles and little cutscenes.</p>
+                    </div>
+                </div>       
+            </div>
+        </div> 
+      </div>
+
+      <footer>
+            <div class="foot-edge"><hr></div>
+            <div class="foot-mid">
+                <div class='foot-link'>
+                    <a href="https://www.linkedin.com/in/ryandonnelly98" target="_blank">
+                        <img src="img/linkedin.png" alt="Check out my LinkedIn">
+                    </a>
+                </div>
+
+                <div class='foot-link'>
+                    <a href="https://www.github.com/ryanfd" target="_blank">
+                        <img src="img/github.png" alt="Check out my GitHub">
+                    </a>
+                </div>
+
+                <div class="foot-link">
+                    <a href="mailto:rdonnelly98@gmail.com" target="_top">
+                        <img src="img/email.png" alt="Send me an email">
+                    </a>
+                </div>
+            </div>
+            <div class="foot-edge"><hr></div>
+      </footer>
+  </body>
+</html>
+
+<script src="js/nav-hover.js"></script>
+<script src="js/schooled-definitions.js"></script>
