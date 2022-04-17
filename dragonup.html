@@ -81,7 +81,7 @@
                     <div class="section">
                         <h3>Summary</h3>
                         <hr class="sub">
-                        <p><em>Dragon Up: Idle Adventure</em> is a free-to-play mobile game and I had the opportunity to design a high-level concept for a 24-hour long event. The objective of the competition was to design a unique theme and narrative that player's would excited players and entice them to complete the event. Furthermore, I needed to crete a new way to use the pre-existing mechanics of Dragon Up in a fresh new way that connected to my theme and narrative.</p>
+                        <p><em>Dragon Up: Idle Adventure</em> is a free-to-play mobile game and I had the opportunity to design a high-level concept for a 24-hour long event. The objective of the competition was to design a unique theme and narrative that players would excite players and entice them to complete the event. Furthermore, I needed to create a new way to use the pre-existing mechanics of Dragon Up in a fresh new way that connected to my theme and narrative.</p>
                         <p>Check out my <a href="https://docs.google.com/document/d/1H-NRIp34LccpJmH48kRxOggk5zMRj6HHHuPR_4yY-eU/edit?usp=sharing" target="_blank">design document</a> for a thorough break down of my creative process!</p>
                     </div>
 
@@ -94,7 +94,7 @@
                         <div class="sum-divide no-space">
                             <p>I started with developing my narrative and theme. I wrote down ideas for narrative arcs, new characters (allies and enemies), lessons to teach, etc. After 2 minutes, I had written down 25 ideas that I could further develop if they jumped out at me.</p>
                             <p>From there, I bundled my ideas together into categories that I noticed were standing out (Story, Lesson/Theme, Dragons, Allies, Enemies, and Seasonal/Holiday Theme). Once I had my ideas separated by category, I could start grouping ideas from different sections together. At the end of this stage, I ended up with 3 rough ideas for a narrative and theme that included ideas for narrative arc, characters, and calls to action.</p>
-                            <p>For a little bit, I struggled with one aspect of my ideation. <em>How would I make this event financially successful?</em> While I liked my preliminary ideas, I was having a hard time thinking of how my theme would entice players to spend some money on the event. At the time, Halloween had just passed. I started thinking about consumer habits during holidays and also researched spending habits of the general public during Halloween. In my research I found that Halloween spending had grow an extra $2 billion from the year prior. That's when I figured out my theme and narrative: a Halloween event about the monsters of the Dragon Up world growing stronger, and the player having to oppose them.</p>
+                            <p>For a little bit, I struggled with one aspect of my ideation. <em>How would I make this event financially successful?</em> While I liked my preliminary ideas, I was having a hard time thinking of how my theme would entice players to spend some money on the event. At the time, Halloween had just passed. I started thinking about consumer habits during holidays and also researched spending habits of the general public during Halloween. In my research I found that Halloween spending had grow an extra $2 billion from the year prior. That's when I figured out my theme and narrative: a Halloween event about the monsters of the <em>Dragon Up</em> world growing stronger, and the player having to oppose them by strengthening their dragons and fighting the monster off.</p>
                             <p>Take a look at my affinity diagrams, their organization, and my final narrative concept in my <a href="https://docs.google.com/document/d/1H-NRIp34LccpJmH48kRxOggk5zMRj6HHHuPR_4yY-eU/edit?usp=sharing" target="_blank">design document</a>!</p>
                         </div>
                         <div class="sum-remainder">
@@ -102,30 +102,25 @@
                         </div>
 
                         <div class="sum-divide no-space">
-                            <p>We started talking about what kinds of abilities our two characters should have. Eventually, I came up with our final 4 abilities for our two players. The Earth character has the transpose ability (throw rock platforms around a level) and the fissure ability (open and close gaps in the ground). Our water character had the dive ability (able to navigate through pipes to reach otherwise unattainable locations in a level) and the geyser ability (creating powerful spouts of water that push platforms, players and enemies).</p>
-                            <p>My next task was to implement the water abilities using the Unity editor and my own C# scripts. Geyser proved to be a bit of a challenge as I utilized Unity components I was not familiar with like Buoyancy Effector2D but eventually I had my desired functionality.</p>
+                            <p>Next was gameplay design. <em>Dragon Up</em> has both idle and active gameplay mechanics. Primarily, players spend coins to upgrade dragons and their nests which, in turn, generate larger sums of coins. When enough coins are reached, the player can automate coin production for each dragon nest. When the player reaches their coin amount goal, they enter the active part of the game: Feeding Time. Where players must tap the screen as fast as possible to feed their dragons and earn item bonuses. When this portion of the game is complete, the game resets and the player must start the automation process again.</p>
+                            <p>I struggled for a bit with ideating new gameplay ideas. I couldn't quite think of an interesting way to revamp both idle and active game mechanics that fit my theme, but also connect to each other.</p>
+                            <p>Once again, I started brainstorming using another affinity diagram. Not only did I need a fresh way to present these mechanics, but they also needed to fit my theme and narrative. My final concept derived the feeding time mechanic. Instead of completing a certain number of objectives and feeding dragons, I reframed the mechanic to involve tapping the screen to fight off the nightmare monsters that were growing in strength during the Halloween season. Furthermore, <em>Dragon Up</em> had a mechanic where 2 legendary dragons can multiply coin output and 1 legendary dragon would multiply coin production rates. I decided to change that so that now one of those dragons would multiply attack power, allowing the player to fend off more monsters. This would also open another revenue stream as the event could offer new items and boosts for purchase around this new mechanic.</p>
+                            <p>I had several game mechanic ideas that you can see for yourself in my <a href="https://docs.google.com/document/d/1H-NRIp34LccpJmH48kRxOggk5zMRj6HHHuPR_4yY-eU/edit?usp=sharing" target="_blank">design document</a>!</p>
                         </div>
                         <div class="sum-remainder">
-                            <video autoplay muted loop>
-                                <source type="video/mp4" src="vid/waterabilities.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                            <img class="strict-img" src="img/dragonup_loop.png" alt="Core Gameplay loop." />
                         </div>
 
-                        <div class="sum-divide no-space">
-                            <p>Lastly was level design. My task was to create our most challenging level. I wanted to use all mechanics available to me while creating a bit of a difficulty spike for our players. This level was to act as a final challenge before our final boss. I looked at creating a faster paced level that would create some timing challenges for our players as well as forcing players to use their abilities in an offensive manner.</p>
-                        </div>
-                        <div class="sum-remainder">
-                            <img class="strict-img length" src="img/leveldesign.jpg" alt="The level I designed." />
-                        </div>
+                        <p>My last tasks were ideating new event-specific rewards and creating a new asset list. Just like my previous work, I wanted my new rewards and assets to fit my unique theme and play into my story and characters. Upon completing my brainstorming, I finalized a list of assets and milestone rewards that players would earn by progressing through the event. Rewards included items like gems (for general shop use), potions (for upgrading dragons) and dragon cards to unlock the dragon I created for this event named <em>Hypnorman</em>.</p>
+                        <p>You can see all my reward ideas and asset list in my <a href="https://docs.google.com/document/d/1H-NRIp34LccpJmH48kRxOggk5zMRj6HHHuPR_4yY-eU/edit?usp=sharing" target="_blank">design document</a>!</p>
                     </div>
 
                     <div class="section last">
                         <h3>Final Product</h3>
                         <hr class="sub">
-                        <p>After hours of designing, iterating, playtesting and refining, we had quite a positive final result. Industry judges felt that we nailed the collaborative aspect of our game and that it was a joy to play with peers.</p>
-                        <p>Furthermore, for our final showcase, we had invited a group of high school students to play all of the games in the class. <em>Resurgence</em> earned the People's Favourite Award as voted by our guests.</p>
-                        <p>Had this project continued, I would have liked to implement a few more dynamic camera effects, like a paralax scroll, to create a more cohesive game environment and I would have liked to further merge the narrative aspect of our game with the gameplay by adding lore collectibles and little cutscenes.</p>
+                        <p>My <em>Dragon Up</em> designed finished second place in the game design competition.</p>
+                        <p>I was very happy with my final product. My theme was captivating and used the Halloween season effectively to persuade players to spend some money for the event. The gameplay was reframed in a fresh way that wouldn't require very much time or money to implement in-game, and it fit my narrative very well. Furthermore, there was only a small amount of rewards required for new reward and character assets.</p>
+                        <p>Had this project allowed more time and a larger scope, I would have enjoyed working with other designers to further flesh out ideas and to sketch some designs of my own for my new characters and rewards.</p>
                     </div>
                 </div>       
             </div>
