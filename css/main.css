@@ -638,6 +638,11 @@ video {
     margin: 2rem 0;
 }
 
+.divide-2-of-3 #dragon-header-img {
+    margin: 75px 0;
+    width: 100%;
+}
+
 .guide-img {
     max-width: 400px;
 }
