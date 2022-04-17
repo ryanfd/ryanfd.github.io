@@ -638,6 +638,11 @@ video {
     margin: 2rem 0;
 }
 
+.divide-2-of-3 #dragon-header-img {
+    /* margin: 75px 0; */
+    width: 100%;
+}
+
 .guide-img {
     max-width: 400px;
 }
@@ -816,6 +821,7 @@ footer .foot-mid a img {
 .effect figure h4 span {
     font-weight: 500;
     letter-spacing: 0.075rem;
+    font-size: 1.5rem;
 }
   
 .effect figure h4,
@@ -857,6 +863,7 @@ figure.zoom img {
 figcaption h4 {
     font-family: "Quicksand_Light", "Arcon", Helvetica, Arial, sans-serif;
     font-weight: 100;
+    font-size: 1rem;
 }
   
 figcaption h4 em {
@@ -871,6 +878,7 @@ figure.zoom h4 {
     left: 50%;
     transform: translateX(-50%);
     transition: 0.3s;
+    width: 100%;
     /* padding: 0.5em 0; */
     /* margin-bottom: 5.5rem; */
 }
