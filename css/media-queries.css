@@ -641,6 +641,11 @@
 
     .divide-third.full .run-half-top {
         margin-bottom: 0;
+        margin-top: 1rem;
+    }
+
+    .divide-third.full .run-top {
+        margin-bottom: 0;
     }
 }
 
