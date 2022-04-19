@@ -1034,3 +1034,9 @@ a.style-link.middle {
 #vid-small {
     max-width: 40%;
 }
+
+iframe {
+    display: block;
+    position: relative;
+    margin: auto;
+}
