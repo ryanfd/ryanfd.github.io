@@ -8,12 +8,11 @@ $(document).ready(function() {
 $(document).ready(function(){
     $(".headline h1").delay(2250).animate({opacity: "1"}, 2000);
     $(".headline p#game").delay(3250).animate({opacity: "1"}, 2000);
-    $(".headline p#program").delay(3750).animate({opacity: "1"}, 2000);
 });
 
 // scroll arrow
 $(document).ready(function() {
-  setTimeout(arrowSlide, 5000)
+  setTimeout(arrowSlide, 3750)
 });
 
 // simultaneous animation
