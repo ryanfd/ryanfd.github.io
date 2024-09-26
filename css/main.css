@@ -676,6 +676,10 @@ video {
     -o-transform:      rotate(90deg);
 }
 
+.sidebar.long h2 {
+    width: 700px;
+}
+
 .sidebar h2 {
     position: absolute;
     top: 30%;
