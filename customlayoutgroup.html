@@ -44,8 +44,8 @@
         </nav>
         <div class="info">
             <div class="wrapper">
-                <div class="sidebar">
-                    <h2>LayoutGroups</h2>
+                <div class="sidebar long">
+                    <h2>Custom Layout Groups</h2>
                     <hr>
                 </div>
 
@@ -63,7 +63,7 @@
                                 <h5>C#</h5>
                             </div>
                             <div class="run-bottom three">
-                                <h4 class="rundown">Patterns & Strategies</h4>
+                                <h4 class="rundown">Strategies</h4>
                                 <h5>Dependency Injection</h5>
                                 <h5>Strategy Pattern</h5>
                             </div>
@@ -72,14 +72,31 @@
                         <div class="divide-2-of-3">
                             <img id="dragon-header-img" src="img/dragonup_header.jpg" alt="Core Gameplay loop." />
                         </div>
-                        <p class="gdd"><a href="https://docs.google.com/document/d/1H-NRIp34LccpJmH48kRxOggk5zMRj6HHHuPR_4yY-eU/edit?usp=sharing" target="_blank">Check Out my Dragon Up Event Design Document</a></p>
+                        <p class="gdd"><a href="https://drive.google.com/file/d/1cOO7O49gR5tbc8lYeKR4wgIxln-NpQzc/view?usp=sharing" target="_blank">Check Out my Cusutom Layout Group proposal</a></p>
                     </div>
 
                     <div class="section">
                         <h3>Summary</h3>
                         <hr class="sub">
-                        <p><em>Dragon Up: Idle Adventure</em> is a free-to-play mobile game and I had the opportunity to design a high-level concept for a 24-hour long event. The objective of the competition was to design a unique theme and narrative that would excite players and entice them to complete the event. Furthermore, I needed to create a new way to use the pre-existing mechanics of Dragon Up in a fresh new way that connected to my theme and narrative.</p>
-                        <p>Check out my <a href="https://docs.google.com/document/d/1H-NRIp34LccpJmH48kRxOggk5zMRj6HHHuPR_4yY-eU/edit?usp=sharing" target="_blank">design document</a> for a thorough break down of my creative process!</p>
+                        <div class="sum-divide">
+                            <p>Unity UI contains a set of UI components that automatically organize UI elements in a screen, these components are called <em>Layout Groups</em>. Unity Layout Groups are broken down into 3 separate components: <em>Grid Layout Groups</em> organize items into a grid, <em>Horizontal Layout Groups</em> organize elements horizontally, and <em>Vertical Layout Groups</em> organize objects vertically. This system is widely used by developers as it is provided by default, intuitive, and automates an otherwise arduous <a id="dirtying" class="define">dirtying process</a>.</p>
+                            <p>In terms of performance, this system is incredibly flawed. In fact, at a Unity developers conference, <a href="https://www.youtube.com/watch?v=_wxitgdx-UI" target="_blank">Unite Europe 2017</a>, Unity advised developers to avoid using Layout Group components whenever possible. </p>
+                            <p>The reason being, the dirtying process is significantly cumbersome on a CPU. To be brief, whenever some data on screen changes, Unity marks this element as <em>dirty</em>, and then for every frame, Unity redraws/recalculates all dirty elements. </p>
+                            
+                        </div>
+                        <div class="sum-remainder">
+                            <img class="sum-img layout-group" src="img/layoutgroup.png" alt="A simeple UI using Layout Groups." />
+                            <div class="definition">
+                                <div class="def-header">
+                                    <h4 class="schooled-sum-definition"></h4>
+                                    <img class="exit" src="img/exit.png" alt="Leave" />
+                                </div>
+                                <p class="schooled-sum-definition"></p>
+                            </div>
+                        </div>
+                        <p>Each time a Layout Group is dirtied, Unity uses a function called <em>GetComponents()</em> to find the dirty component's <em>Root Layout Group</em>. This function is infamous for being expensive in terms of performance, and when you have multiple nested and dynamic Layout Groups, this cost grows multiplicatively.</p>
+                        <p>My task was to create a custom and performant Layout Group system that could be used as an alternative for all Layout Groups.</p>
+                        <p>Check out my <a href="https://drive.google.com/file/d/1cOO7O49gR5tbc8lYeKR4wgIxln-NpQzc/view?usp=sharing" target="_blank">proposal document</a> for a thorough break down of the task!</p>
                     </div>
 
 
@@ -150,4 +167,4 @@
 </html>
 
 <script src="js/nav-hover.js"></script>
-<script src="js/schooled-definitions.js"></script>
+<script src="js/definitions.js"></script>

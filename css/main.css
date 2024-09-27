@@ -418,6 +418,13 @@ a.define {
     transform: translateX(-50%);
 }
 
+.sum-remainder img.sum-img.layout-group {
+    max-height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 h4 {
     font-family: "Quicksand_Light";
     font-size: 1.5rem;
