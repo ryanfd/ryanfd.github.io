@@ -356,6 +356,13 @@ a.define {
     padding-left: 2rem;
 }
 
+.definition-body .def-header h4.layout-group-sum-definition {
+    color: rgba(255,255,255,1);
+    padding: 1rem;
+    margin-top: 0;
+    padding-left: 2rem;
+}
+
 .definition .def-header img {
     max-width: 20px;
     position: absolute;
@@ -374,12 +381,24 @@ a.define {
     opacity: 1;
 }
 
+img.centered-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
 .definition p.schooled-sum-definition {
     padding: 2rem;
     padding-top: 1rem;
 }
 
 .definition-body p.ai-sum-definition {
+    padding: 2rem;
+    padding-top: 1rem;
+}
+
+.definition-body p.layout-group-sum-definition {
     padding: 2rem;
     padding-top: 1rem;
 }
