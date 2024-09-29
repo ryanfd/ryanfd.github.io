@@ -28,3 +28,33 @@ $("#dirtying").click(function() {
     $("p.schooled-sum-definition").animate({opacity: 1}, 200);
     setTimeout(leave, 0);
 });
+
+$("#horizontal-layout-group").click(function() {
+    $("h4.schooled-sum-definition").css("opacity", "0");
+    $("p.schooled-sum-definition").css("opacity", "0");
+    $("h4.schooled-sum-definition").text("Horizontal Layout Group");
+    $("p.schooled-sum-definition").text("Organize elements horizontally.");
+    $("h4.schooled-sum-definition").animate({opacity: 1}, 200);
+    $("p.schooled-sum-definition").animate({opacity: 1}, 200);
+    setTimeout(leave, 0);
+});
+
+$("#grid-layout-group").click(function() {
+    $("h4.schooled-sum-definition").css("opacity", "0");
+    $("p.schooled-sum-definition").css("opacity", "0");
+    $("h4.schooled-sum-definition").text("Grid Layout Group");
+    $("p.schooled-sum-definition").text("Organize items into a grid.");
+    $("h4.schooled-sum-definition").animate({opacity: 1}, 200);
+    $("p.schooled-sum-definition").animate({opacity: 1}, 200);
+    setTimeout(leave, 0);
+});
+
+$("#vertical-layout-group").click(function() {
+    $("h4.schooled-sum-definition").css("opacity", "0");
+    $("p.schooled-sum-definition").css("opacity", "0");
+    $("h4.schooled-sum-definition").text("Vertical Layout Group");
+    $("p.schooled-sum-definition").text("Organize objects vertically.");
+    $("h4.schooled-sum-definition").animate({opacity: 1}, 200);
+    $("p.schooled-sum-definition").animate({opacity: 1}, 200);
+    setTimeout(leave, 0);
+});
