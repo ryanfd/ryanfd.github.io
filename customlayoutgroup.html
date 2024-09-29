@@ -33,7 +33,7 @@
                     <hr id="work">
                 </div>
                 <div class="nav-item">
-                    <a id="resume" href="pdf/Resume.pdf" target="_blank" class="nav-item">my resume</a>
+                    <a id="resume" href="https://drive.google.com/file/d/1HF54f7GG1xHYlUBJ7s8ymMZptvjsLvhi/view?usp=sharing" target="_blank" class="nav-item">my resume</a>
                     <hr id="resume">
                 </div>
                 <div class="nav-item">
@@ -109,8 +109,9 @@
                         <p>2. Change the original <em>Layout Group</em> and <em>Layout Rebuilder</em> systems as little as possible. In case of emergency, we could revert back to Unity Layout Groups if needed.</p>
                         
                         <div class="sum-divide no-space">
-                        <p>My next task was to breakdown how Unity's Layout Groups and Layout Rebuilder interact with each other. After reading through Unity's documentation and some C# files, I was able to breakdown the flow of a layout rebuild and map out the relationship between these systems using a <a id="class-diagram" class="define">class diagram</a> (a diagram that describes the structure of a system using the system's classes, attributes, methods, and the relationships among objects).</p>
-                        <p>For each <em>SetDirty()</em> call inside of <em>LayoutGroup.cs</em>, <em>LayoutRebuilder.MarkLayoutForRebuild()</em> is called. This function walks up the Layout Group object hierarchy using <em>GetComponents()</em> to find the <em>RootLayout</em>. The <em>RootLayout</em> is validated if needed using more <em>GetComponents()</em> calls. If valid, a <em>LayoutRebuilder</em> object is instantiated and stores reference to the <em>LayoutRoot</em>. The <em>CanvasUpdateRegistry</em> class registers root and orchestrates the layout update. Lastly once the rebuild completes, the <em>Rebuilder</em> instance is released from the pool of to-be-rebuilt Rebuilders.</p>
+                            <p>My next task was to breakdown how Unity's Layout Groups and Layout Rebuilder interact with each other. After reading through Unity's documentation and some C# files, I was able to breakdown the flow of a layout rebuild and map out the relationship between these systems using a <a id="class-diagram" class="define">class diagram</a> (a diagram that describes the structure of a system using the system's classes, attributes, methods, and the relationships among objects).</p>
+                            <p>For each <em>SetDirty()</em> call inside of <em>LayoutGroup.cs</em>, <em>LayoutRebuilder.MarkLayoutForRebuild()</em> is called. This function walks up the Layout Group object hierarchy using <em>GetComponents()</em> to find the <em>RootLayout</em>. The <em>RootLayout</em> is validated if needed using more <em>GetComponents()</em> calls. If valid, a <em>LayoutRebuilder</em> object is instantiated and stores reference to the <em>LayoutRoot</em>. The <em>CanvasUpdateRegistry</em> class registers root and orchestrates the layout update. Lastly once the rebuild completes, the <em>Rebuilder</em> instance is released from the pool of to-be-rebuilt Rebuilders.</p>
+                            <p>Get a closer look at the class diagram <a href="https://drive.google.com/file/d/1Gqc2akzNEn1SLzMfb-8kS4lA7M54U31i/view?usp=sharing" target="_blank">here</a>!</p>
                         </div> 
                         <div class="sum-remainder">
                             <a href="https://drive.google.com/file/d/1Gqc2akzNEn1SLzMfb-8kS4lA7M54U31i/view?usp=sharing" target="_blank"><img class="sum-img-body" width="100%" src="img/LayoutGroupDiagram.PNG" alt="Layout Group class diagram." /></a>
