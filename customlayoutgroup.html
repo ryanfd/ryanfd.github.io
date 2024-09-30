@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Ryan Donnelly | Dragon Up</title>
+    <link rel="shortcut icon" type="image/png" href="img/logo-black.png" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flex.css">
+    <link rel="stylesheet" href="css/load-fonts.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="js/fade.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+  </head>
+
+  <body>
+      <div id="data" class="data">
+        <nav>
+            <div class="left-divide">
+                <a href="index.html"><img src="img/logo-gray.png" alt="Ryan's Logo." /></a>
+                <a class="name" href="index.html">ryanfd</a>
+            </div>
+          
+            <div class="right-divide">
+                <div class="nav-item">
+                    <a id="me" href="index.html#data">about me</a>
+                    <hr id="me">
+                </div>
+                <div class="nav-item">
+                    <a id="work" href="index.html#mywork" class="nav-item">my work</a>
+                    <hr id="work">
+                </div>
+                <div class="nav-item">
+                    <a id="resume" href="https://drive.google.com/file/d/1HF54f7GG1xHYlUBJ7s8ymMZptvjsLvhi/view?usp=sharing" target="_blank" class="nav-item">my resume</a>
+                    <hr id="resume">
+                </div>
+                <div class="nav-item">
+                    <a id="contact" href="contact.html" class="nav-item">contact me</a>
+                    <hr id="contact">
+                </div>
+            </div>
+        </nav>
+        <div class="info">
+            <div class="wrapper">
+                <div class="sidebar long">
+                    <h2>Custom Layout Groups</h2>
+                    <hr>
+                </div>
+
+                <div class="main">
+                    <div class="rundown-divide">
+                        <div class="divide-third three">
+                            <div class="run-top three">
+                                <h4 class="rundown top">Role</h4>
+                                <h5>Software Engineer</h5>
+                            </div>
+                            <div class="run-mid three">
+                                <h4 class="rundown">Skills</h4>
+                                <h5>System Design</h5>
+                                <h5>Unity</h5>
+                                <h5>C#</h5>
+                            </div>
+                            <div class="run-bottom three">
+                                <h4 class="rundown">Strategies</h4>
+                                <h5>Dependency Injection</h5>
+                                <h5>Strategy Pattern</h5>
+                            </div>
+                        </div>
+
+                        <div class="divide-2-of-3">
+                            <img id="dragon-header-img" src="img/grid-layout-group.png" alt="Core Gameplay loop." />
+                        </div>
+                        <p class="gdd"><a href="https://drive.google.com/file/d/1cOO7O49gR5tbc8lYeKR4wgIxln-NpQzc/view?usp=sharing" target="_blank">Check Out my Cusutom Layout Group proposal</a></p>
+                    </div>
+
+                    <div class="section">
+                        <h3>Summary</h3>
+                        <hr class="sub">
+                        <div class="sum-divide">
+                            <p>Unity UI contains a set of UI components that automatically organize UI elements in a screen. These components are called <em>Layout Groups</em>. Unity Layout Groups are broken down into 3 separate components: <a id="grid-layout-group" class="define">Grid Layout Groups</a>, <a id="horizontal-layout-group" class="define">Horizontal Layout Groups</a>, and <a id="vertical-layout-group" class="define">Vertical Layout Groups</a>. This system is widely used by developers as it is provided by default, intuitive, and automates an otherwise arduous <a id="dirtying" class="define">dirtying process</a>.</p>
+                            <p>In terms of performance, this system is incredibly flawed. In fact, at a Unity developers conference, <a href="https://www.youtube.com/watch?v=_wxitgdx-UI" target="_blank">Unite Europe 2017</a>, Unity advised developers to avoid using Layout Group components whenever possible. </p>
+                            <p>The reason being, the dirtying process is significantly cumbersome on a CPU. To be brief, whenever some data on screen changes, Unity marks this element as <em>dirty</em>, and then for every frame, Unity redraws/recalculates all dirty elements. </p>
+                            
+                        </div>
+                        <div class="sum-remainder">
+                            <img class="sum-img layout-group" src="img/layoutgroup.png" alt="A simeple UI using Layout Groups." />
+                            <div class="definition">
+                                <div class="def-header">
+                                    <h4 class="schooled-sum-definition"></h4>
+                                    <img class="exit" src="img/exit.png" alt="Leave" />
+                                </div>
+                                <p class="schooled-sum-definition"></p>
+                            </div>
+                        </div>
+                        <p>Each time a Layout Group is dirtied, Unity's <em>Layout Rebuilder</em> uses a function called <em>GetComponents()</em> to find the dirty component's <em>Root Layout Group</em>. This function is infamous for being expensive in terms of performance, and when you have multiple nested and dynamic Layout Groups, this cost grows multiplicatively.</p>
+                        <p>My task was to create a custom and performant Layout Group system that could be used as an alternative for all Layout Groups in a live product with millions of users.</p>
+                        <p>Check out my <a href="https://drive.google.com/file/d/1cOO7O49gR5tbc8lYeKR4wgIxln-NpQzc/view?usp=sharing" target="_blank">proposal document</a> for a thorough break down of the task!</p>
+                    </div>
+
+
+
+                    <div class="section expand">
+                        <h3>Process + Challenges</h3>
+                        <hr class="sub">
+                        <p>Since this was a live product and the end-goal was to replace every Unity Layout Group, I had to be extremely careful to ensure the custom Layout Groups would not break any UI elements. With this in mind, I identified my high-level requirements for the structure and functionality of the system:</p>
+                        <p>1. My system should live on top of Unity's as a separate entity. This would allow me to inherit the organizing functionality of each Layout Group without overwriting the original system.</p>
+                        <p>2. Change the original <em>Layout Group</em> and <em>Layout Rebuilder</em> systems as little as possible. In case of emergency, we could revert back to Unity Layout Groups if needed.</p>
+                        
+                        <div class="sum-divide no-space">
+                            <p>My next task was to breakdown how Unity's Layout Groups and Layout Rebuilder interact with each other. After reading through Unity's documentation and some C# files, I was able to breakdown the flow of a layout rebuild and map out the relationship between these systems using a <a id="class-diagram" class="define">class diagram</a> (a diagram that describes the structure of a system using the system's classes, attributes, methods, and the relationships among objects).</p>
+                            <p>For each <em>SetDirty()</em> call inside of <em>LayoutGroup.cs</em>, <em>LayoutRebuilder.MarkLayoutForRebuild()</em> is called. This function walks up the Layout Group object hierarchy using <em>GetComponents()</em> to find the <em>RootLayout</em>. The <em>RootLayout</em> is validated if needed using more <em>GetComponents()</em> calls. If valid, a <em>LayoutRebuilder</em> object is instantiated and stores reference to the <em>LayoutRoot</em>. The <em>CanvasUpdateRegistry</em> class registers the root and orchestrates the layout update. Lastly once the rebuild completes, the <em>Rebuilder</em> instance is released from the pool of to-be-rebuilt Rebuilders. This process repeats for every <em>SetDirty()</em> call, even if a <em>LayoutRoot</em> is already dirty.</p>
+                            <p>Get a closer look at the custom class diagram <a href="https://drive.google.com/file/d/1g-od9F94T9Cou5hU2esp3qAozGTgUsUo/view?usp=sharing" target="_blank">here</a>!</p>
+                        </div> 
+                        <div class="sum-remainder">
+                            <a href="https://drive.google.com/file/d/1g-od9F94T9Cou5hU2esp3qAozGTgUsUo/view?usp=sharing" target="_blank"><img class="sum-img-body" width="100%" src="img/LayoutGroupDiagram.PNG" alt="Layout Group class diagram." /></a>
+                            <div class="definition-body">
+                                <div class="def-header">
+                                    <h4 class="layout-group-sum-definition"></h4>
+                                    <img class="exit-body" src="img/exit.png" alt="Leave" />
+                                </div>
+                                <p class="layout-group-sum-definition"></p>
+                            </div>
+                        </div>
+
+                        <p>Now that I understood the flow and structure of Unity's Layout Group rebuilding, I could design my own system to integrate with the pre-existing one. I realized I could reduce the cost of dirtying a Layout Group by storing a reference to its <em>RootLayout</em>. Instead of relying on the <em>LayoutRebuilder</em> to find the root, I could just pass the root to it when needed. While that covered the largest cost of the <em>GetComponents()</em> calls, I still had the problem of many redundant <em>SetDirty()</em> calls being made. I determined I could use a manager class to validate each <em>SetDirty()</em> call by storing reference to currently dirty <em>LayoutRoots</em>.</p>
+
+                        <p>With the high-level functionality determined, I started planning out my implementation. I needed to create 3 new separate component classes: <em>CustomGridLayoutGroup</em>, <em>CustomHorizontalLayoutGroup</em>, and <em>CustomVerticalLayoutGroup</em>. Each of these classes would inherit their unique behaviour from their respective Unity Layout Group classes.</p>
+
+                        <div class="sum-divide no-space">
+                            <p>To separate the dirtying functionality between my custom and the Unity Layout Groups, I used the <a id="strategy-pattern" class="define">Strategy/Policy Design Pattern</a>. I created a new <a id="interface" class="define">interface</a>, <em>IMarkForRebuildPolicy</em> which contained one method, <em>MarkForRebuild()</em>. I then created two classes that extended this interface, <em>StandardMarkForRebuildPolicy</em> and <em>CustomMarkForRebuildPolicy</em>. The <em>LayoutGroup</em> base class would using <a id="dependency-injection" class="define">dependency injection</a> and store an <em>IMarkForRebuildPolicy</em> variable and by default use the standard rebuild policy. The standard version would use Unity's rebuilding process, while the custom version skips the <em>LayoutRoot</em> search using a stored root. During their initialization, the new <em>Custom Layout Group</em> classes would use <a id="constructor-injection" class="define">constructor injection</a> to set the <em>IMarkForRebuildPolicy</em> variable as a <em>CustomMarkForRebuildPolicy</em>.</p>
+
+                            <p>Each <em>Custom Layout Group</em> class would also store an instance of a new <em>CustomLayoutGroupCache</em> class. The cache class stores a reference to a Layout Group's <em>LayoutRoot</em> and the <em>ILayoutController</em> components used to validate a <em>LayoutRoot</em>. This class also handles the logic for validating the root and updating the root and controllers when needed (I.e. <em>OnTransformParentChanged()</em>). Lastly this classes references the <em>CustomLayoutGroupManager</em> using <em>dependency injection</em> and uses it to validate <em>SetDirty()</em> calls.</p>
+                        </div>
+                        <div class="sum-remainder">
+                            <a href="https://drive.google.com/file/d/1oRGP5PR_TIzzh_KrXOyTsSWNeKHqIEeY/view?usp=sharing" target="_blank"><img class="sum-img-body2" width="100%" src="img/CustomLayoutGroupDiagram.PNG" alt="Custom Layout Group class diagram." /></a>
+                            <div class="definition-body2">
+                                <div class="def-header">
+                                    <h4 class="layout-group-sum-definition2"></h4>
+                                    <img class="exit-body2" src="img/exit.png" alt="Leave" />
+                                </div>
+                                <p class="layout-group-sum-definition2"></p>
+                            </div>
+                        </div>
+
+                        <p>The <em>CustomLayoutGroupManager</em> was relatively simple. A <a id="hashset" class="define">HashSet</a> is cached and stores the <a id="instance-id" class="define">InstanceIDs</a> of currently dirty roots. So if a <em>SetDirty()</em> call was made for an already-dirty root, the redundant dirtying process is blocked. I also added an <a id="event" class="define">event</a> inside of the <em>LayoutRebuilder</em> class that would pass the <em>InstanceID</em> of a <em>RootLayout</em> when the rebuilding process completes. The manager subscribes to this event and upon invokation, the manager would remove the <em>InstanceID</em> from the <em>HashSet</em>.</p>
+
+                        <p>Get a closer look at the class diagram <a href="https://drive.google.com/file/d/1oRGP5PR_TIzzh_KrXOyTsSWNeKHqIEeY/view?usp=sharing" target="_blank">here</a>!</p>
+                    </div>
+
+                    <div class="section last">
+                        <h3>Final Product</h3>
+                        <hr class="sub">
+                        <p>With the goal of creating performant Layout Groups, my <em>Custom Layout Groups</em> were very successful. I gathered performance metrics on two of the most LayoutGroup-copious screens in the product to see how the efficiency had improved. I found that the time taken to dirty Layout Groups reduced by <b>70%</b> (measured in milliseconds) and the space required to dirty Layout Groups reduced by <b>80%</b> (measured in bytes).</p>
+                        <img class="centered-img" src="img/performance-metrics.PNG" alt="Performance metrics of the Custom Layout Groups." />
+                        
+                        <p>Because this was a live product, one of the most important requirements of my task was to change the existing Layout Group rebuilding system as little as possible. Due to this restraint, I had to leave some repeated code in my <em>Custom Layout Group</em> classes (initializing the <em>CustomMarkForRebuildPolicy</em>, handling <em>SetDirty()</em> calls, initializing a <em>CustomLayoutGroupCache</em>, etc.). While I did investigate avoiding this via <em>CustomLayoutGroup</em> base classes and expanding the <em>IMarkLayoutForRebuildPolicy</em> interface, it all required larger refactors to the existing Layout Group system.</p>
+                    </div>
+                </div>       
+            </div>
+        </div> 
+      </div>
+
+      <footer>
+            <div class="foot-edge"><hr></div>
+            <div class="foot-mid">
+                <div class='foot-link'>
+                    <a href="https://www.linkedin.com/in/ryandonnelly98" target="_blank">
+                        <img src="img/linkedin.png" alt="Check out my LinkedIn">
+                    </a>
+                </div>
+
+                <div class='foot-link'>
+                    <a href="https://www.github.com/ryanfd" target="_blank">
+                        <img src="img/github.png" alt="Check out my GitHub">
+                    </a>
+                </div>
+
+                <div class="foot-link">
+                    <a href="mailto:rdonnelly98@gmail.com" target="_top">
+                        <img src="img/email.png" alt="Send me an email">
+                    </a>
+                </div>
+            </div>
+            <div class="foot-edge"><hr></div>
+      </footer>
+  </body>
+</html>
+
+<script src="js/nav-hover.js"></script>
+<script src="js/definitions.js"></script>

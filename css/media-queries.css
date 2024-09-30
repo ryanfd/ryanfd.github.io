@@ -217,6 +217,12 @@
         width: 100%;
     }
 
+    .sum-remainder img.sum-img.layout-group {
+        max-width: none;
+        position: relative;
+        height: 100%;
+    }
+
     .sum-remainder video {
         position: relative;
     }
@@ -534,7 +540,7 @@
     }
 
     .sidebar h2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .sidebar hr {
