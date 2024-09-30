@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="divide-2-of-3">
-                            <img id="dragon-header-img" src="img/dragonup_header.jpg" alt="Core Gameplay loop." />
+                            <img id="dragon-header-img" src="img/grid-layout-group.png" alt="Core Gameplay loop." />
                         </div>
                         <p class="gdd"><a href="https://drive.google.com/file/d/1cOO7O49gR5tbc8lYeKR4wgIxln-NpQzc/view?usp=sharing" target="_blank">Check Out my Cusutom Layout Group proposal</a></p>
                     </div>
@@ -110,11 +110,11 @@
                         
                         <div class="sum-divide no-space">
                             <p>My next task was to breakdown how Unity's Layout Groups and Layout Rebuilder interact with each other. After reading through Unity's documentation and some C# files, I was able to breakdown the flow of a layout rebuild and map out the relationship between these systems using a <a id="class-diagram" class="define">class diagram</a> (a diagram that describes the structure of a system using the system's classes, attributes, methods, and the relationships among objects).</p>
-                            <p>For each <em>SetDirty()</em> call inside of <em>LayoutGroup.cs</em>, <em>LayoutRebuilder.MarkLayoutForRebuild()</em> is called. This function walks up the Layout Group object hierarchy using <em>GetComponents()</em> to find the <em>RootLayout</em>. The <em>RootLayout</em> is validated if needed using more <em>GetComponents()</em> calls. If valid, a <em>LayoutRebuilder</em> object is instantiated and stores reference to the <em>LayoutRoot</em>. The <em>CanvasUpdateRegistry</em> class registers root and orchestrates the layout update. Lastly once the rebuild completes, the <em>Rebuilder</em> instance is released from the pool of to-be-rebuilt Rebuilders.</p>
-                            <p>Get a closer look at the class diagram <a href="https://drive.google.com/file/d/1Gqc2akzNEn1SLzMfb-8kS4lA7M54U31i/view?usp=sharing" target="_blank">here</a>!</p>
+                            <p>For each <em>SetDirty()</em> call inside of <em>LayoutGroup.cs</em>, <em>LayoutRebuilder.MarkLayoutForRebuild()</em> is called. This function walks up the Layout Group object hierarchy using <em>GetComponents()</em> to find the <em>RootLayout</em>. The <em>RootLayout</em> is validated if needed using more <em>GetComponents()</em> calls. If valid, a <em>LayoutRebuilder</em> object is instantiated and stores reference to the <em>LayoutRoot</em>. The <em>CanvasUpdateRegistry</em> class registers the root and orchestrates the layout update. Lastly once the rebuild completes, the <em>Rebuilder</em> instance is released from the pool of to-be-rebuilt Rebuilders. This process repeats for every <em>SetDirty()</em> call, even if a <em>LayoutRoot</em> is already dirty.</p>
+                            <p>Get a closer look at the custom class diagram <a href="https://drive.google.com/file/d/1g-od9F94T9Cou5hU2esp3qAozGTgUsUo/view?usp=sharing" target="_blank">here</a>!</p>
                         </div> 
                         <div class="sum-remainder">
-                            <a href="https://drive.google.com/file/d/1Gqc2akzNEn1SLzMfb-8kS4lA7M54U31i/view?usp=sharing" target="_blank"><img class="sum-img-body" width="100%" src="img/LayoutGroupDiagram.PNG" alt="Layout Group class diagram." /></a>
+                            <a href="https://drive.google.com/file/d/1g-od9F94T9Cou5hU2esp3qAozGTgUsUo/view?usp=sharing" target="_blank"><img class="sum-img-body" width="100%" src="img/LayoutGroupDiagram.PNG" alt="Layout Group class diagram." /></a>
                             <div class="definition-body">
                                 <div class="def-header">
                                     <h4 class="layout-group-sum-definition"></h4>
@@ -124,25 +124,38 @@
                             </div>
                         </div>
 
+                        <p>Now that I understood the flow and structure of Unity's Layout Group rebuilding, I could design my own system to integrate with the pre-existing one. I realized I could reduce the cost of dirtying a Layout Group by storing a reference to its <em>RootLayout</em>. Instead of relying on the <em>LayoutRebuilder</em> to find the root, I could just pass the root to it when needed. While that covered the largest cost of the <em>GetComponents()</em> calls, I still had the problem of many redundant <em>SetDirty()</em> calls being made. I determined I could use a manager class to validate each <em>SetDirty()</em> call by storing reference to currently dirty <em>LayoutRoots</em>.</p>
+
+                        <p>With the high-level functionality determined, I started planning out my implementation. I needed to create 3 new separate component classes: <em>CustomGridLayoutGroup</em>, <em>CustomHorizontalLayoutGroup</em>, and <em>CustomVerticalLayoutGroup</em>. Each of these classes would inherit their unique behaviour from their respective Unity Layout Group classes.</p>
+
                         <div class="sum-divide no-space">
-                            <p>Next was gameplay design. <em>Dragon Up</em> has both idle and active gameplay mechanics. Primarily, players spend coins to upgrade dragons and their nests which, in turn, generate larger sums of coins. When enough coins are reached, the player can automate coin production for each dragon nest. When the player reaches their coin amount goal, they enter the active part of the game: <em>Feeding Time</em>. Here players must tap the screen as fast as possible to feed their dragons and earn item bonuses. When this portion of the game is complete, the game resets and the player must start the automation process again.</p>
-                            <p>I struggled for a bit with ideating new gameplay ideas. I couldn't quite think of an interesting way to revamp both idle and active game mechanics that fit my theme, but also connected to each other.</p>
-                            <p>Once again, I started brainstorming using another affinity diagram. Not only did I need a fresh way to present these mechanics, but they also needed to fit my theme and narrative. My final concept derived the feeding time mechanic. Instead of completing a certain number of objectives and feeding dragons, I reframed the mechanic to involve tapping the screen to fight off the nightmare monsters that were growing in strength during the Halloween season. Furthermore, <em>Dragon Up</em> had a mechanic where 2 legendary dragons can multiply coin output and 1 legendary dragon would multiply coin production rates. I decided to change that so that now one of those dragons would multiply attack power, allowing the player to fend off more monsters. This would also open another revenue stream as the event could offer new items and boosts for purchase around this new mechanic.</p>
-                            <p>I had several game mechanic ideas that you can see for yourself in my <a href="https://docs.google.com/document/d/1H-NRIp34LccpJmH48kRxOggk5zMRj6HHHuPR_4yY-eU/edit?usp=sharing" target="_blank">design document</a>!</p>
+                            <p>To separate the dirtying functionality between my custom and the Unity Layout Groups, I used the <a id="strategy-pattern" class="define">Strategy/Policy Design Pattern</a>. I created a new <a id="interface" class="define">interface</a>, <em>IMarkForRebuildPolicy</em> which contained one method, <em>MarkForRebuild()</em>. I then created two classes that extended this interface, <em>StandardMarkForRebuildPolicy</em> and <em>CustomMarkForRebuildPolicy</em>. The <em>LayoutGroup</em> base class would using <a id="dependency-injection" class="define">dependency injection</a> and store an <em>IMarkForRebuildPolicy</em> variable and by default use the standard rebuild policy. The standard version would use Unity's rebuilding process, while the custom version skips the <em>LayoutRoot</em> search using a stored root. During their initialization, the new <em>Custom Layout Group</em> classes would use <a id="constructor-injection" class="define">constructor injection</a> to set the <em>IMarkForRebuildPolicy</em> variable as a <em>CustomMarkForRebuildPolicy</em>.</p>
+
+                            <p>Each <em>Custom Layout Group</em> class would also store an instance of a new <em>CustomLayoutGroupCache</em> class. The cache class stores a reference to a Layout Group's <em>LayoutRoot</em> and the <em>ILayoutController</em> components used to validate a <em>LayoutRoot</em>. This class also handles the logic for validating the root and updating the root and controllers when needed (I.e. <em>OnTransformParentChanged()</em>). Lastly this classes references the <em>CustomLayoutGroupManager</em> using <em>dependency injection</em> and uses it to validate <em>SetDirty()</em> calls.</p>
                         </div>
                         <div class="sum-remainder">
-                            <img class="strict-img" src="img/dragonup_loop.png" alt="Core Gameplay loop." />
+                            <a href="https://drive.google.com/file/d/1oRGP5PR_TIzzh_KrXOyTsSWNeKHqIEeY/view?usp=sharing" target="_blank"><img class="sum-img-body2" width="100%" src="img/CustomLayoutGroupDiagram.PNG" alt="Custom Layout Group class diagram." /></a>
+                            <div class="definition-body2">
+                                <div class="def-header">
+                                    <h4 class="layout-group-sum-definition2"></h4>
+                                    <img class="exit-body2" src="img/exit.png" alt="Leave" />
+                                </div>
+                                <p class="layout-group-sum-definition2"></p>
+                            </div>
                         </div>
 
-                        <p>My last tasks were ideating new event-specific rewards and creating a new asset list. As with my previous work, I wanted my new rewards and assets to fit my unique theme and play into my story and characters. Upon completing my brainstorming, I finalized a list of assets and milestone rewards that players would earn by progressing through the event. Rewards included items like gems (for general shop use), potions (for upgrading dragons) and dragon cards to unlock the dragon I created for this event named <em>Hypnorman</em>.</p>
-                        <p>You can see all my reward ideas and asset list in my <a href="https://docs.google.com/document/d/1H-NRIp34LccpJmH48kRxOggk5zMRj6HHHuPR_4yY-eU/edit?usp=sharing" target="_blank">design document</a>!</p>
+                        <p>The <em>CustomLayoutGroupManager</em> was relatively simple. A <a id="hashset" class="define">HashSet</a> is cached and stores the <a id="instance-id" class="define">InstanceIDs</a> of currently dirty roots. So if a <em>SetDirty()</em> call was made for an already-dirty root, the redundant dirtying process is blocked. I also added an <a id="event" class="define">event</a> inside of the <em>LayoutRebuilder</em> class that would pass the <em>InstanceID</em> of a <em>RootLayout</em> when the rebuilding process completes. The manager subscribes to this event and upon invokation, the manager would remove the <em>InstanceID</em> from the <em>HashSet</em>.</p>
+
+                        <p>Get a closer look at the class diagram <a href="https://drive.google.com/file/d/1oRGP5PR_TIzzh_KrXOyTsSWNeKHqIEeY/view?usp=sharing" target="_blank">here</a>!</p>
                     </div>
 
                     <div class="section last">
                         <h3>Final Product</h3>
                         <hr class="sub">
-                        <p>My <em>Dragon Up</em> design earned second place in the game design competition. I was very happy with my final product. My theme was captivating and used the Halloween season effectively to persuade players to spend some money for the event. The gameplay was reframed in a fresh way that wouldn't require very much time or money to implement in-game, and it fit my narrative very well. Furthermore, there was only a small amount of rewards required for new reward and character assets.</p>
-                        <p>Had this project allowed more time and a larger scope, I would have enjoyed working with other designers to further flesh out ideas and to sketch some designs of my own for my new characters and rewards.</p>
+                        <p>With the goal of creating performant Layout Groups, my <em>Custom Layout Groups</em> were very successful. I gathered performance metrics on two of the most LayoutGroup-copious screens in the product to see how the efficiency had improved. I found that the time taken to dirty Layout Groups reduced by <b>70%</b> (measured in milliseconds) and the space required to dirty Layout Groups reduced by <b>80%</b> (measured in bytes).</p>
+                        <img class="centered-img" src="img/performance-metrics.PNG" alt="Performance metrics of the Custom Layout Groups." />
+                        
+                        <p>Because this was a live product, one of the most important requirements of my task was to change the existing Layout Group rebuilding system as little as possible. Due to this restraint, I had to leave some repeated code in my <em>Custom Layout Group</em> classes (initializing the <em>CustomMarkForRebuildPolicy</em>, handling <em>SetDirty()</em> calls, initializing a <em>CustomLayoutGroupCache</em>, etc.). While I did investigate avoiding this via <em>CustomLayoutGroup</em> base classes and expanding the <em>IMarkLayoutForRebuildPolicy</em> interface, it all required larger refactors to the existing Layout Group system.</p>
                     </div>
                 </div>       
             </div>
